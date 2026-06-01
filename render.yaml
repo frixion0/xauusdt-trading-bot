@@ -3,8 +3,9 @@ services:
     name: xauusdt-trading-bot
     runtime: node
     plan: free
+    region: oregon
     buildCommand: npm install
-    startCommand: npx bun index.ts
+    startCommand: npm run start
     healthCheckPath: /health
     envVars:
       - key: NODE_ENV
@@ -12,7 +13,7 @@ services:
       - key: PORT
         generateValue: true
       - key: MUDREX_API_KEY
-        value: v33dnrb92FKBSMTVUxJ6ufeW7cBBEmmK
+        sync: false
       - key: LEVERAGE
         value: "100"
       - key: QUANTITY
