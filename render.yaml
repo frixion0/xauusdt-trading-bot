@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: xauusdt-trading-bot
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npx bun index.ts
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        generateValue: true
+      - key: MUDREX_API_KEY
+        value: v33dnrb92FKBSMTVUxJ6ufeW7cBBEmmK
+      - key: LEVERAGE
+        value: "100"
+      - key: QUANTITY
+        value: "0.002"
+      - key: STOP_LOSS_PCT
+        value: "0.5"
+      - key: TAKE_PROFIT_PCT
+        value: "1.0"
